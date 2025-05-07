@@ -1,3 +1,4 @@
+// first divide then call the merge function
 function mergeSort(arr: Array<number>, low: number, high: number) {
   if (low >= high) return;
   let mid = Math.floor((low + high) / 2);

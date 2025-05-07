@@ -19,3 +19,15 @@ function removeDuplicate(arr: Array<number>) {
 let ar = [1, 1, 1, 2, 2, 3];
 removeDuplicate(ar);
 console.log(ar);
+
+//optimal approach
+// function removeDuplicates(nums: number[]): number {
+//   let p = 0
+//   for (let i = 0; i < nums.length; i++) {
+//       if(nums[i]!==nums[p]){
+//           p++
+//           nums[p]=nums[i]
+//       }
+//   }
+//   return p+1
+// };

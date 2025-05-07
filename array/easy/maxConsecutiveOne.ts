@@ -13,4 +13,17 @@ function maxConsecutiveOnes(arr: Array<number>): Array<number> | null {
   return freqArr;
 }
 
+function findMaxConsecutiveOnes(nums: number[]): number {
+  let c = 0
+  let m = 0
+  for (let i = 0; i < nums.length; i++) {
+      if (nums[i] == 1) {
+          c++
+      } else if (nums[i] != 1) {
+          m = Math.max(m, c)
+          c = 0
+      }
+  }
+  return Math.max(m, c)
+};
 console.log(maxConsecutiveOnes([1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1]));

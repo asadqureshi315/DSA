@@ -12,3 +12,23 @@ function moveZeroes(arr: Array<number>) {
 let c = [1, 0, 2, 0, 3, 0, 4, 0];
 moveZeroes(c);
 console.log(c);
+
+/**
+ Optimal Solution
+ */
+//  function moveZeroes(arr: number[]): void {
+//   let p = -1
+//   for (let i = 0; i < arr.length; i++) {
+//       if (arr[i] == 0) {
+//           p = i
+//           break
+//       }
+//   }
+//   if(p==-1) return
+//   for (let i = p + 1; i < arr.length; i++) {
+//       if (arr[i] != 0) {
+//           [arr[i], arr[p]] = [arr[p], arr[i]]
+//           p++
+//       }
+//   }
+// };
