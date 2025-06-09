@@ -34,3 +34,26 @@ Output:\
 Constraints:\
 There are no leading or trailing spaces in the input string records or target_name.\
 The format of the input string is consistent, with each record containing the keys name, age, and marks (though the order may vary).}
+
+
+function extractData(str:any, name:any){
+    let objArr=str.split(";").filter(Boolean)
+    let person={}
+    for(let e of objArr){
+        let innerArr=e.split(",")
+        let name=""
+        let obj={}
+        for(let prop of innerArr){
+            const [key,val]=prop.split(":")
+            if(key=="name"){
+                name=val
+            }else{
+                obj[key]=val
+            }
+        }
+        person[name]=obj
+    }
+    return person
+}
+const str="name:darshan,age:10,marks:100;name:shiva,age:10,marks:50;"
+console.log(extractData(str,"darshan"))
