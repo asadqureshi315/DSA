@@ -1,0 +1,9 @@
+function timeToMinute(str:String){
+    let val=str.split(":")
+    let sign=val[0][0]
+    let hour=parseInt(val[0].split("")[1])
+    let minute=parseInt(val[1])
+    let minutes=hour*60+minute
+    return `${sign}${minutes}`
+}
+console.log(timeToMinute("+1:00"))
