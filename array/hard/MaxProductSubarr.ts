@@ -1,12 +1,12 @@
-function MaxProductSubarr(arr: number[]) {
-  let prod = 1;
-  let maxProd = -Infinity;
-  for (let i = 0; i < arr.length; i++) {
-    prod *= arr[i];
-    if (arr[i] == 0) prod = 1;
-    maxProd = Math.max(prod, maxProd);
-  }
-  console.log(maxProd);
-  return maxProd;
-}
-MaxProductSubarr([1, 2, -3, 0, -4, -5]);
+function maxProduct(nums: number[]): number {
+    let n = nums.length
+    let maxPrd = nums[0]
+    for (let i = 0; i < n; i++) {
+        let prd = 1
+        for (let j = i; j < n; j++) {
+            prd *= nums[j]
+            maxPrd = Math.max(prd, maxPrd)
+        }
+    }
+    return maxPrd
+};
