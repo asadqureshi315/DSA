@@ -1,3 +1,37 @@
+// map stores cumulative sums as keys and their frequency as values. It's initialized with [0, 1] to handle subarrays starting from index 0.
+// Loop through the array:
+
+// Add current element to sum (running cumulative sum)
+// Calculate diff = sum - k (the cumulative sum we need to have seen before)
+// If diff exists in the map, it means we've found subarray(s) that sum to k. Add the frequency of diff to our count
+// Store/update the current sum in the map
+
+
+
+// Example: nums = [1, 2, 3], k = 3
+
+// i=0: sum=1, diff=-2, map={0:1, 1:1}, count=0
+// i=1: sum=3, diff=0, found! count=1, map={0:1, 1:1, 3:1}
+// i=2: sum=6, diff=3, found! count=2, map={0:1, 1:1, 3:1, 6:1}
+
+// Result: 2 subarrays [1,2] and [3]
+
+function subarraySum(nums: number[], k: number): number {
+    let n = nums.length
+    let sum = 0
+    let map = new Map<number, number>([[0, 1]])
+    let count = 0
+    for (let i = 0; i <n; i++) {
+        sum += nums[i]
+        let diff = sum-k
+        if (map.has(diff)) {
+            count += map.get(diff)
+        }
+        map.set(sum, (map.get(sum) || 0) + 1)
+    }
+    return count
+};
+
 function maxKSumSubArr(nums: number[], k: number): number {
     let n = nums.length
     let maxLen = 0
@@ -48,4 +82,5 @@ function subarraySum(arr: number[], k: number): number {
   return c;
 }
 subarraySum([1, 2, 3], 3);
+
 
