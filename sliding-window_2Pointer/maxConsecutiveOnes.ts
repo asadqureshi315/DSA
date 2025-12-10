@@ -15,4 +15,26 @@ function bruteForceMaxConsecutiveOnes(nums: number[],k:number) {
     }
     return maxOnes
 }
+
+function longestOnes(nums: number[], k: number): number {
+    let n = nums.length
+    let maxOnes = 0
+    let l = 0
+    let zeroCount=0
+    for (let r = 0; r < n; r++) {
+        if(nums[r]==0){
+            zeroCount++
+        }
+        while(zeroCount>k){
+            if(nums[l]==0){
+                zeroCount--
+            }
+            l++
+        }
+        maxOnes=Math.max(maxOnes, r-l+1)
+    }
+    return maxOnes
+};
+
 console.log(bruteForceMaxConsecutiveOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0],3))
+console.log(longestOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0],3))
