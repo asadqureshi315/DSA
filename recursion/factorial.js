@@ -7,3 +7,9 @@ function factorial(n, fact) {
   factorial(n - 1, fact * n);
 }
 factorial(4, 1);
+
+function factorial(n:number):number{
+    if(n<=1) return 1
+    return n*factorial(n-1)
+}
+console.log(factorial(5))
